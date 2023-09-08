@@ -1,113 +1,189 @@
-import Image from 'next/image'
+'use client';
+import { ArrowLeft, Heart } from 'lucide-react';
+import Image from 'next/image';
+import fruta from '@/assets/fruta.png';
+import { Button } from '@/components/ui/button';
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="bg-surfaceElement h-screen max-w-[400px]">
+      <div className="flex justify-between p-6">
+        <button>
+          <ArrowLeft className="h-8 w-8  " />
+        </button>
+        <button>
+          <Heart className="h-8 w-8 hover:text-secondary hover:fill-secondary " />
+        </button>
+      </div>
+
+      <div className="z-20 flex justify-center mt-[-50px]">
+        <Image src={fruta} width={300} height={300} alt="fruta" />
+      </div>
+
+      <div className="z-10 bg-white h-screen rounded-3xl mt-[-220px]  ">
+        <div className="pt-[250px] flex justify-center text-2xl font-semibold">
+          {' '}
+          Salada Variada
+        </div>
+        <div className="flex">
+          <div className="w-[50%] flex justify-center text-sm">
+            Energia <br /> 221,15 kcal
+          </div>
+          <div className="w-[50%] flex justify-center text-sm">
+            porção total <br /> 240g
+          </div>
+        </div>
+        <div className="text-sm ml-8 mr-11 mt-10 font-semibold">
+          <div className="flex justify-between">
+            <div className="mb-2 mt-2">Proteinas</div>
+            <div className="mb-2 mt-2">15,13g</div>
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+          </div>
+          <div className="flex justify-between">
+            <div className="mb-2 mt-2">Carboidratos</div>
+            <div className="mb-2 mt-2">18,40g</div>
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+          </div>
+          <div className="flex justify-between">
+            <div className="mb-2 mt-2">Açucar</div>
+            <div className="mb-2 mt-2">4,88g</div>
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+          </div>
+          <div className="flex justify-between">
+            <div className="mb-2 mt-2">Gorduras</div>
+            <div className="mb-2 mt-2">5,18g</div>
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-primary h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+            <div className="bg-surfaceElement h-3 w-10 rounded-full gap-3"></div>
+          </div>
+        </div>
+        <div className="flex justify-center">
+          <Dialog>
+            <DialogTrigger>
+              <Button className="w-80 h-14 mt-10 mr-4 text-white">
+                Mais detalhes
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <div className="flex justify-center">
+                  <div className="w-20 h-2 bg-primary rounded"></div>
+                </div>
+                <DialogTitle className="flex justify-center">
+                  Mais detalhes
+                </DialogTitle>
+                <DialogDescription>
+                  <ul className="leading-8">
+                    <div className="flex justify-between leading-8">
+                      <li>Energia</li>
+                      <span>221.15 kcal</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Proteínas</li>
+                      <span>15,13 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Carboidratos</li>
+                      <span>18,40 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8 ml-3">
+                      <li>Fibra Alimentar</li>
+                      <span>5,83 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8 ml-3">
+                      <li>Açucar</li>
+                      <span>4,88 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Gorduras Totais</li>
+                      <span>5,18 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8 ml-3">
+                      <li>Gorduras Saturadas</li>
+                      <span>0,86 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8 ml-3">
+                      <li>Gorduras Trans</li>
+                      <span>0 g</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Colesterol</li>
+                      <span>0 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Sódio</li>
+                      <span>243,03 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Potácio</li>
+                      <span>291,85 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Cálcio</li>
+                      <span>49,02 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Ferro</li>
+                      <span>2,91 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Magnésio</li>
+                      <span>48,23 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Vitamina C</li>
+                      <span>29,49 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Vitamina D</li>
+                      <span>24,88 mg</span>
+                    </div>
+                    <div className="flex justify-between leading-8">
+                      <li>Vitamina B6</li>
+                      <span>32,40 mg</span>
+                    </div>
+                  </ul>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
     </main>
-  )
+  );
 }
