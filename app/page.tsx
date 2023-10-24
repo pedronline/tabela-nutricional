@@ -12,16 +12,28 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [ative, setAtive] = useState(localStorage.getItem('ative') === 'true');
+  const buttonClasses = ative ? 'text-secondary fill-secondary' : '';
+
+  useEffect(() => {
+    localStorage.setItem('ative', ative);
+  }, [ative]);
+
+  const handleHover = () => {
+    setAtive(!ative);
+  };
+
   return (
     <main className="bg-surfaceElement h-screen max-w-[400px]">
       <div className="flex justify-between p-6">
         <button>
           <ArrowLeft className="h-8 w-8  " />
         </button>
-        <button>
-          <Heart className="h-8 w-8 hover:text-secondary hover:fill-secondary " />
+        <button onClick={handleHover}>
+          <Heart className={buttonClasses} />
         </button>
       </div>
 
