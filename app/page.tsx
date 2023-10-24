@@ -19,7 +19,7 @@ export default function Home() {
   const buttonClasses = ative ? 'text-secondary fill-secondary' : '';
 
   useEffect(() => {
-    localStorage.setItem('ative', ative);
+    localStorage.setItem('ative', ative.toString());
   }, [ative]);
 
   const handleHover = () => {
