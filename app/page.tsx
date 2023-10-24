@@ -15,15 +15,17 @@ import {
 import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [ative, setAtive] = useState(localStorage.getItem('ative') === 'true');
-  const buttonClasses = ative ? 'text-secondary fill-secondary' : '';
+  const [heartAtive, setHeartAtive] = useState(
+    localStorage.getItem('heartAtive') === 'true'
+  );
+  const buttonClasses = heartAtive ? 'text-secondary fill-secondary' : '';
 
   useEffect(() => {
-    localStorage.setItem('ative', ative.toString());
-  }, [ative]);
+    localStorage.setItem('heartAtive', heartAtive.toString());
+  }, [heartAtive]);
 
   const handleHover = () => {
-    setAtive(!ative);
+    setHeartAtive(!heartAtive);
   };
 
   return (
